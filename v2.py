@@ -2,11 +2,11 @@ import os
 
 import gradio as gr
 from langchain.chains import RetrievalQA
-from langchain.embeddings import OllamaEmbeddings
 from langchain.text_splitter import CharacterTextSplitter
-from langchain.vectorstores import FAISS
 from langchain_community.document_loaders import PyPDFLoader, TextLoader
-from langchain_community.llms import Ollama
+from langchain_community.vectorstores import FAISS
+from langchain_ollama import OllamaEmbeddings
+from langchain_ollama import OllamaLLM
 
 VECTOR_DIR = "faiss_index"
 embeddings = OllamaEmbeddings(model="llama3")
@@ -51,10 +51,10 @@ def ask_question(query):
                 allow_dangerous_deserialization=True
             )
             retriever = vectorstore.as_retriever()
-            llm = Ollama(model="llama3")
+            llm = OllamaLLM(model="llama3")
             qa_chain = RetrievalQA.from_chain_type(llm=llm, retriever=retriever)
 
-        return qa_chain.run(query)
+        return qa_chain.invoke(query)
     except Exception as e:
         return f"❌ Error: {str(e)}"
 
@@ -106,3 +106,4 @@ with gr.Blocks() as app:
     gr.Markdown("💡 Tip: You can re-upload files anytime. Context resets with each new upload.")
 
 app.launch()
+
