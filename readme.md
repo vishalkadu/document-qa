@@ -40,7 +40,7 @@ cd document-qa-app
 ```bash
 # python 3.12 or higher is required
 python3 -m venv venv
-source vk_env/bin/activate      # Windows: vk_env\Scripts\activate
+source venv/bin/activate      # Windows: vk_env\Scripts\activate
 ```
 
 ### 3. Install Required Packages
