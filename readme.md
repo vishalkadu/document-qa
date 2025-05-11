@@ -31,7 +31,7 @@ interface** — all running locally!
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/document-qa-app.git
+git clone https://github.com/vishalkadu/document-qa.git
 cd document-qa-app
 ```
 
@@ -49,13 +49,12 @@ source vk_env/bin/activate      # Windows: vk_env\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 4. Install Ollama
+### 4. Install Ollama 🦙 [Ollama](https://ollama.com/)
 
 ```bash
-# Follow the instructions on the Ollama website to install it locally.
 # DOWNLOAD https://ollama.com/download
 # DOCS https://github.com/ollama/ollama/tree/main/docs
-# Ollama lets you run models like LLaMA3 locally (no OpenAI API key required)
+# Ollama lets you run models like LLaMA3 locally (no API key required)
 ```
 
 ### 5. Download LLaMA3 Model
